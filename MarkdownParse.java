@@ -15,17 +15,20 @@ public class MarkdownParse {
             int openBracket;
             //no more links/brackets
             if(currentIndex==0 && markdown.indexOf("[")==0){
+                //System.out.println("Reads first bracket");
                 openBracket = 0;
             }else if(markdown.indexOf("[", currentIndex)==-1){
                 break;
             }else{
+                //System.out.println("Not supposed to be here");
                 openBracket = markdown.indexOf("[", currentIndex);
             }
             //System.out.println(currentIndex + " start");
-            if(markdown.indexOf("!", currentIndex) == openBracket-1){
+            if(openBracket!=0 && markdown.indexOf("!", currentIndex) == openBracket-1){
                 currentIndex += 2;
                 continue;
             }
+            //System.out.println("Openbracket: "+openBracket+" Reaches close bracket");
             int closeBracket = markdown.indexOf("]", openBracket);
             //no parenthesis
             if(markdown.indexOf("(", closeBracket)==-1){
