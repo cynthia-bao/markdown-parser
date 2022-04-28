@@ -14,7 +14,7 @@ public class MarkdownParse {
         while(currentIndex < markdown.length()) {
             int openBracket;
             //no more links/brackets
-            if(/*currentIndex==0 &&*/ markdown.indexOf("[")==0){
+            if(currentIndex==0 && markdown.indexOf("[")==0){
                 //System.out.println("Reads first bracket");
                 openBracket = 0;
             }else if(markdown.indexOf("[", currentIndex)==-1){
@@ -44,7 +44,7 @@ public class MarkdownParse {
                 continue;
             }
             int closeParen = markdown.indexOf(")", openParen);
-            toReturn.add(markdown.substring(openParen + 1, closeParen));
+            //toReturn.add(markdown.substring(openParen + 1, closeParen));
             currentIndex = closeParen + 1;
             //System.out.println(currentIndex + " end");
         }
