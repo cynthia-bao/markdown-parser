@@ -37,7 +37,7 @@ public class MarkdownParseTest {
     @Test
     public void testGetLinksBracketsFile() throws IOException {
         ArrayList<String> testFileLink = new ArrayList<>();
-        testFileLink.addAll(Arrays.asList("somelink", ""));
+        testFileLink.addAll(Arrays.asList("somelink"));
         Path fileName = Path.of("brackets-only.md");
         String content = Files.readString(fileName);
         assertEquals(testFileLink, MarkdownParse.getLinks(content)); 
@@ -45,7 +45,7 @@ public class MarkdownParseTest {
     @Test
     public void testGetLinksImageFile() throws IOException {
         ArrayList<String> testFileLink = new ArrayList<>();
-        testFileLink.addAll(Arrays.asList("https://wwwgoogle.com"));
+        testFileLink.addAll(Arrays.asList("https://www.google.com"));
         Path fileName = Path.of("image-file.md");
         String content = Files.readString(fileName);
         assertEquals(testFileLink, MarkdownParse.getLinks(content)); 
