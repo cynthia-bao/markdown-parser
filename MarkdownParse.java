@@ -49,6 +49,7 @@ public class MarkdownParse {
             //System.out.println(currentIndex + " end");
         }
 
+        //added line for commit change for part 2 lab report 3
         return toReturn;
     }
 
