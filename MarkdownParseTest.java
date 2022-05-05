@@ -1,4 +1,5 @@
 //importing junit library
+//change made for makefile lab 6 writeup
 import static org.junit.Assert.*;
 import org.junit.*;
 
