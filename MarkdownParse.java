@@ -26,7 +26,7 @@ public class MarkdownParse {
             }
             //System.out.println(currentIndex + " start");
             if(openBracket!=0 && markdown.indexOf("!", currentIndex) == openBracket-1){
-                currentIndex += 2;
+                currentIndex += openBracket+1;
                 continue;
             }
             //System.out.println("Openbracket: "+openBracket+" Reaches close bracket");
