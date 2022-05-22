@@ -51,4 +51,38 @@ public class MarkdownParseTest {
         String content = Files.readString(fileName);
         assertEquals(testFileLink, MarkdownParse.getLinks(content)); 
     }
+
+@Test
+public void testSnip1() throws Exception {
+    String file = Files.readString(Path.of("snippet1.md"));
+    ArrayList<String> testoutput = new ArrayList<>();
+    testoutput = MarkdownParse.getLinks(file);
+    ArrayList<String> expectedoutput = new ArrayList<String>();
+    expectedoutput.addAll(Arrays.asList("'google.com", "google.com"));
+    assertEquals(expectedoutput, testoutput);
+}
+
+@Test
+public void testSnip2() throws Exception {
+    String file = Files.readString(Path.of("snippet2.md"));
+    ArrayList<String> testoutput = new ArrayList<>();
+    testoutput = MarkdownParse.getLinks(file);
+    ArrayList<String> expectedoutput = new ArrayList<String>();
+    expectedoutput.addAll(Arrays.asList("a.com", "a.com(())",
+        "example.com"));
+    assertEquals(expectedoutput, testoutput);
+}
+
+@Test
+public void testSnip3() throws Exception {
+    String file = Files.readString(Path.of("snippet3.md"));
+    ArrayList<String> testoutput = new ArrayList<>();
+    testoutput = MarkdownParse.getLinks(file);
+    ArrayList<String> expectedoutput = new ArrayList<String>();
+    expectedoutput.addAll(Arrays.asList("https://www.twitter.com", 
+        "https://sites.google.com/eng.ucsd.edu/cse-15l-spring-2022/schedule",
+        "https://cse.ucsd.edu/"
+    ));
+    assertEquals(expectedoutput, testoutput);
+}
 }
